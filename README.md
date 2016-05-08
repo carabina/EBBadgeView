@@ -15,19 +15,20 @@ EBBadgeModel：标示模型，用于封装标示属性。
 将EBBadgeView文件夹拖入工程中（drag EBBadgeView dir to your proj）
 
 # Usage
-```
+```objc
+
 #import "EBBadgeView.h"
 
-//UIView 显示BadgeView (Just one line code make UIView shows beautiful custom badgeView)
+// UIView 显示BadgeView (Just one line code make UIView shows beautiful custom badgeView)
 [view eb_showWithBadgeModel:badgeModel];
 
-//设置BadgeView的位置(set the position)
+// 设置BadgeView的位置(set the position)
 [view.eb_badgeValueView setFrame:CGRectMake(0,0,18,18)];
 
-//UITabBar 显示自定义BadgeView(UITabBar show custom badgeView use following code)
+// UITabBar 显示自定义BadgeView(UITabBar show custom badgeView use following code)
 [self.tabBarController.tabBar eb_showWithBadgeModel:badgeModel atIndex:0];
 
-//在UITabBar中你也可以自己设置BadgeView的位置（You can set the position like this）
+// 在UITabBar中你也可以自己设置BadgeView的位置（You can set the position like this）
 [self.tabBarController.tabBar eb_setItemBadgeOffset:CGPointMake(10, 14)];
 
 ```
