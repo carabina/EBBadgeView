@@ -22,7 +22,7 @@ EBBadgeModel：标示模型，用于封装标示属性。
 //设置BadgeView的位置(set the position)
 [view.eb_badgeValueView setFrame:CGRectMake(0,0,18,18)];
 
-//UIView 显示自定义BadgeView(UITabBar show custom badgeView use following code)
+//UITabBar 显示自定义BadgeView(UITabBar show custom badgeView use following code)
 [self.tabBarController.tabBar eb_showWithBadgeModel:badgeModel atIndex:0];
 
 //在UITabBar中你也可以自己设置BadgeView的位置（You can set the position like this）
