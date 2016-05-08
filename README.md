@@ -7,20 +7,23 @@ UIView+EBBadgeHelper：提供扩展方法使UIView可以获取所有subViews的�
 EBBadgeModel：标示模型，用于封装标示属性。
 
 # ScreenShot
-！[ScreenShot]()
+！[ScreenShot](https://github.com/kaychn126/EBBadgeView/blob/master/PPCamara_20160508205514.gif)
 
 # Installation
 将EBBadgeView文件夹拖入工程中（drag EBBadgeView dir to your proj）
 
 # Usage
 ```
-//Just one line code make UIView shows beautiful custom badgeView:
+//UIView 显示BadgeView (Just one line code make UIView shows beautiful custom badgeView)
 [view eb_showWithBadgeModel:badgeModel];
 
-//UITabBar show custom badgeView use following code:
+//设置BadgeView的位置(set the position)
+[view.eb_badgeValueView setFrame:CGRectMake(0,0,18,18)];
+
+//UIView 显示自定义BadgeView(UITabBar show custom badgeView use following code)
 [self.tabBarController.tabBar eb_showWithBadgeModel:badgeModel atIndex:0];
 
-//You can set the position like this:
+//在UITabBar中你也可以自己设置BadgeView的位置（You can set the position like this）
 [self.tabBarController.tabBar eb_setItemBadgeOffset:CGPointMake(10, 14)];
 
 ```
