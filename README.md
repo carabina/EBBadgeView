@@ -16,6 +16,8 @@ EBBadgeModel：标示模型，用于封装标示属性。
 
 # Usage
 ```
+#import "EBBadgeView.h"
+
 //UIView 显示BadgeView (Just one line code make UIView shows beautiful custom badgeView)
 [view eb_showWithBadgeModel:badgeModel];
 
