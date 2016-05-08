@@ -12,12 +12,13 @@ EBBadgeModel：标示模型，用于封装标示属性。
 ![](https://github.com/kaychn126/EBBadgeView/blob/master/PPCamara_20160508205514.gif?raw=true)
 
 # Installation
-1.cocoapods
-```bash
-pod EBBadgeView
+##1.cocoapods  
+```ruby
+pod 'EBBadgeView'
 ```
-
+##2.手动（manual）    
 将EBBadgeView文件夹拖入工程中（drag EBBadgeView dir to your proj）
+
 
 # Usage
 ```objc
