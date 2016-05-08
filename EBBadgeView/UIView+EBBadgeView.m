@@ -18,7 +18,7 @@ static char kAssociatedBadgeLabelKey;
 #define kEBBadgeViewHeight 18
 
 @implementation UIView (EBBadgeView)
-@dynamic eb_badgeValueView,eb_badgePointView;
+@dynamic eb_badgeValueView,eb_badgePointView,eb_badgeLabel;
 
 - (void)setEb_badgeValueView:(UIImageView *)eb_badgeValueView{
     if (self.eb_badgeValueView != eb_badgeValueView) {
@@ -57,7 +57,7 @@ static char kAssociatedBadgeLabelKey;
 - (void)eb_showWithBadgeModel:(EBBadgeModel*)badgeModel{
     self.eb_badgeModel = badgeModel;
     if (self.superview) {
-        [self.superview eb_resetEbBadgeModel];
+        [self.superview eb_updateSuperViewBadgeModel];
     }
     if (badgeModel) {
         if (badgeModel.badgeViewType == EBBadgeViewTypeNumber || badgeModel.badgeViewType == EBBadgeViewTypeString) {

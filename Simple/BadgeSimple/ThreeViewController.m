@@ -39,7 +39,7 @@
     UIViewController *preVc = [self.navigationController.viewControllers objectAtIndex:self.navigationController.viewControllers.count-2];
     [preVc.view eb_getSubViewsBadgeModelWithBlock:^(EBBadgeModel *badgeModel) {
         if (badgeModel.badgeViewType == EBBadgeViewTypeNumber) {
-            self.navigationItem.backBarButtonItem.title = [NSString stringWithFormat:@"first(%ld)",badgeModel.badgeNumber];
+            self.navigationItem.backBarButtonItem.title = [NSString stringWithFormat:@"first(%ld)",(long)badgeModel.badgeNumber];
         }
     }];
 }
