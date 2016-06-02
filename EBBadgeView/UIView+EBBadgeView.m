@@ -23,8 +23,15 @@ static char kAssociatedBadgeLabelKey;
 - (void)setEb_badgeValueView:(UIImageView *)eb_badgeValueView{
     if (self.eb_badgeValueView != eb_badgeValueView) {
         [self.eb_badgeValueView removeFromSuperview];
-        [self addSubview:eb_badgeValueView];
-        [self bringSubviewToFront:eb_badgeValueView];
+        if ([self isKindOfClass:UITableViewCell.class]) {
+            UITableViewCell *cell = (UITableViewCell*)self;
+            [cell.contentView addSubview:eb_badgeValueView];
+            [cell.contentView bringSubviewToFront:eb_badgeValueView];
+        }else{
+            [self addSubview:eb_badgeValueView];
+            [self bringSubviewToFront:eb_badgeValueView];
+        }
+        
         objc_setAssociatedObject(self, &kAssociatedBadgeValueViewKey, eb_badgeValueView, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
     }
 }
@@ -36,8 +43,15 @@ static char kAssociatedBadgeLabelKey;
 - (void)setEb_badgePointView:(UIImageView *)eb_badgePointView{
     if (self.eb_badgePointView != eb_badgePointView) {
         [self.eb_badgePointView removeFromSuperview];
-        [self addSubview:eb_badgePointView];
-        [self bringSubviewToFront:eb_badgePointView];
+        if ([self isKindOfClass:UITableViewCell.class]) {
+            UITableViewCell *cell = (UITableViewCell*)self;
+            [cell.contentView addSubview:eb_badgePointView];
+            [cell.contentView bringSubviewToFront:eb_badgePointView];
+        }else{
+            [self addSubview:eb_badgePointView];
+            [self bringSubviewToFront:eb_badgePointView];
+        }
+        
         objc_setAssociatedObject(self, &kAssociatedBadgePointViewKey, eb_badgePointView, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
     }
 }
@@ -55,6 +69,9 @@ static char kAssociatedBadgeLabelKey;
 }
 
 - (void)eb_showWithBadgeModel:(EBBadgeModel*)badgeModel{
+    if (self.eb_badgeModel == badgeModel) {
+        return;
+    }
     self.eb_badgeModel = badgeModel;
     if (self.superview) {
         [self.superview eb_updateSuperViewBadgeModel];
@@ -101,6 +118,7 @@ static char kAssociatedBadgeLabelKey;
             self.eb_badgeValueView.frame = CGRectMake(0, 0, badgeWidth, badgeHeight);
             self.eb_badgeValueView.center = CGPointMake(self.bounds.size.width, 0);
             self.eb_badgeLabel.frame = self.eb_badgeValueView.bounds;
+            self.eb_badgeValueView.hidden = NO;
             
             if (self.eb_badgePointView) {
                 self.eb_badgePointView.hidden = YES;
@@ -110,9 +128,9 @@ static char kAssociatedBadgeLabelKey;
                 UIImageView *badgePointView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"badgePoint"]];
                 badgePointView.frame = CGRectMake(0, 0, 12, 12);
                 badgePointView.center = CGPointMake(self.bounds.size.width, 0);
-                
                 self.eb_badgePointView = badgePointView;
             }
+            self.eb_badgePointView.hidden = NO;
             
             if (self.eb_badgeValueView) {
                 self.eb_badgeValueView.hidden = YES;
