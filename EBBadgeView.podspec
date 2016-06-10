@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "EBBadgeView"
-  s.version      = "1.0.0"
+  s.version      = "1.0.1"
   s.summary      = "A library helps UIView and UITabBar to show custom badgeView"
 
   # This description is used to generate tags and improve search results.
